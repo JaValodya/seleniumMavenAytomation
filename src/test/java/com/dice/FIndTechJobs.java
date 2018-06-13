@@ -56,6 +56,19 @@ public class FIndTechJobs {
 		
 		String count = driver.findElement(By.id("posiCountId")).getText();
 		System.out.println(count);
+		
+		//ensure count is more than 0
+		int countResult = Integer.parseInt(count.replace(",", ""));
+		
+		if(countResult > 0) {
+			System.out.println( "Step PASS: Keyword : " + keyword +" search returned " +
+			countResult +" results in " + location);
+		}else {
+			System.out.println( "Step FAIL: Keyword : " + keyword +" search returned " +
+					countResult +" results in " + location);
+		}
+		
+		driver.close();
 	}
 
 }
